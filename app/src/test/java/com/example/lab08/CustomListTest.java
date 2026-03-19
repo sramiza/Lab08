@@ -29,4 +29,15 @@ public class CustomListTest {
 
         assertFalse(list.hasCity(calgary));
     }
+
+    @Test
+    public void testCountCities() {
+
+        CustomList list = new CustomList();
+
+        list.addCity(new City("Calgary", "AB"));
+        list.addCity(new City("Edmonton", "AB"));
+
+        assertEquals(2, list.countCities());
+    }
 }
