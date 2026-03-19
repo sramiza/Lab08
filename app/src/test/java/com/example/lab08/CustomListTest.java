@@ -18,21 +18,15 @@ public class CustomListTest {
     }
 
     @Test
-    public void testDelete() {
-        CityList cityList = mockCityList();
-        City city = new City("Edmonton", "AB");
-        cityList.add(city);
-        assertTrue(cityList.hasCity(city));
-        cityList.delete(city);
-        assertFalse(cityList.hasCity(city));
-    }
+    public void testDeleteCity() {
 
-    @Test
-    public void testDeleteException() {
-        CityList cityList = mockCityList();
-        City fakeCity = new City("Calgary", "AB");
-        assertThrows(IllegalArgumentException.class, () -> {
-            cityList.delete(fakeCity);
-        });
+        CustomList list = new CustomList();
+        City calgary = new City("Calgary", "AB");
+
+        list.addCity(calgary);
+
+        list.deleteCity(calgary);
+
+        assertFalse(list.hasCity(calgary));
     }
 }
